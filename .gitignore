@@ -1,0 +1,13 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+/renv/library/
+/renv/cache
+.DS_Store
+/data
+/output
+**/*.ipynb_checkpoints/
+*.out
+/python/cache
+.env

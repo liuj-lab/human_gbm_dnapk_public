@@ -1,0 +1,15 @@
+{
+    "exclude": [
+        "**/__pycache__",
+        "**/.git",
+        "**/node_modules",
+        "**/.vscode",
+        "**/miniconda3/envs/*/lib/python*/site-packages",  // Exclude large site-packages directories
+        "**/output",
+        "**/data"
+    ],
+    "include": [
+        "~/miniconda3/envs/home",
+        "~/miniconda3/envs/human_gbm_dnapk"
+    ]
+}
