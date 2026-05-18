@@ -1,5 +1,5 @@
 # human_gbm_dnapk
-A repository for analysis relating to human GBM models and DNA-PK
+A repository for analysis relating to human GBM models and DNA-PKcs. Software dependencies and versions are indicated in the individual analysis scripts. These analyses can be run on normal desktop hardware with a typical install and run time of under 1 hour. 
 
 ## Pre-commit
 This repository uses pre-commit hooks to style and maintain standards for Python and R code. This requires
