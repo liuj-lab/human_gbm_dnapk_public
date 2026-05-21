@@ -1,4 +1,7 @@
 # human_gbm_dnapk
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20334626.svg)](https://doi.org/10.5281/zenodo.20334626)
+
 A repository for analysis relating to human GBM models and DNA-PKcs. Software dependencies and versions are indicated in the individual analysis scripts. These analyses can be run on normal desktop hardware with a typical install and run time of under 1 hour.
 
 ## Environment setup
