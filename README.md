@@ -59,11 +59,13 @@ data/
 └── regev_lab_cell_cycle_genes.txt
 ```
 
-`regev_lab_cell_cycle_genes.txt` is the standard S- and G2/M-phase marker list from Tirosh et al. 2016 (Regev lab). If it is not bundled with your Zenodo download, it can be fetched directly from the Theis lab's `scanpy_usage` repository:
+`regev_lab_cell_cycle_genes.txt` is the standard S- and G2/M-phase marker list from Tirosh et al. 2016 (Regev lab). If it is not bundled with your Zenodo download, it can be fetched directly from the Scanpy demo doc:
 
 ```bash
-curl -L -o data/regev_lab_cell_cycle_genes.txt \
-  https://raw.githubusercontent.com/theislab/scanpy_usage/master/180209_cell_cycle/data/regev_lab_cell_cycle_genes.txt
+wget -O cell_cycle_vignette_files.zip \
+"https://www.dropbox.com/s/3dby3bjsaf5arrw/cell_cycle_vignette_files.zip?dl=1"
+
+unzip -l cell_cycle_vignette_files.zip
 ```
 
 (`dspin_preprocessing.ipynb` writes `gbm43_processed.h5ad` into `data/gbm43_perturb_seq/`, which is then loaded by `dspin_run.ipynb`.) Output figures and intermediate artifacts are written under a top-level `output/` directory, which will be created on first run.
