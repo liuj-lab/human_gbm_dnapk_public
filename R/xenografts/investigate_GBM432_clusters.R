@@ -546,7 +546,7 @@ macrophages_microglias <- subset(
   immune_data,
   annotated_cell_type %in% c(
     "Microglia",
-    "Macrophage",
+    "Macrophages",
     "Perivascular macrophages"
   )
 )
