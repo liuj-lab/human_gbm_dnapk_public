@@ -48,7 +48,7 @@ The full D-SPIN analysis on the GBM43 Perturb-seq dataset is reproducible end-to
 
 The raw input data and ancillary files required to run these two notebooks are archived on Zenodo:
 
-> https://doi.org/10.5281/zenodo.20334626
+> https://doi.org/10.5281/zenodo.23403327
 
 Download the archive and place its contents under a top-level `data/` directory at the repository root. The notebooks expect, at minimum:
 
