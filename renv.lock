@@ -694,6 +694,17 @@
       ],
       "Hash": "8b68bff394e3e09995c8044480ecc3ea"
     },
+    "SPATA2": {
+      "Package": "SPATA2",
+      "Version": "2.0.3",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteUsername": "theMILOlab",
+      "RemoteRepo": "SPATA2",
+      "RemoteRef": "v2.0.3",
+      "RemoteSha": "9a6d249e25ec0f4f1ed035b49bc74bf6090cdb98"
+    },
     "SQUAREM": {
       "Package": "SQUAREM",
       "Version": "2021.1",

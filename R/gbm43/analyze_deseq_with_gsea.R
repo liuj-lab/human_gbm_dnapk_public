@@ -217,7 +217,7 @@ saveRDS(kd_map, file.path(DATA_DIR, "gbm43_sample_averaged_kd_map.rds"))
 
 # Calculate dropout values by calculating LFC against the same condition
 # non-targeting control. These should be controlled per sample
-raw_seurat_data <- readRDS("/raleighlab/data1/liuj/gbm_perturb/analysis/GBM43_1_malignant_only_annotated_20230817.Rds")
+raw_seurat_data <- readRDS(file.path(DATA_DIR, "GBM43_1_malignant_only_annotated_20230817.Rds"))
 
 # For each FACS-sorted sample, calculate the ratio from the
 # number of non-targeting guides for each. We could also calculate p-values

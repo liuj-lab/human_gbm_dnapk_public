@@ -10,7 +10,7 @@ utils.deseq <- new.env()
 source("R/utils/deseq.R", local = utils.deseq)
 
 # Use sorted and coverage filters.
-gl261_data <- readRDS("/raleighlab/data1/liuj/gbm_perturb/analysis/GL261_integrated_20230619.Rds")
+gl261_data <- readRDS("data/gl261_perturb_seq/GL261_integrated_20230619.Rds")
 gl261_data <- subset(gl261_data, sgRNA %in% c("non-targeting", "Prkdc"))
 gl261_data <- subset(gl261_data, sorted %in% c("MACSFACS", "invitro"))
 gl261_data$sgRNACondSource <- paste(gl261_data$sgRNACond, gl261_data$source, sep = "_")

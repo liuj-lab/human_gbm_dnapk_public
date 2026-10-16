@@ -27,7 +27,7 @@ OUTPUT_DIR <- "output/gbm43/lda"
 # ==================
 # Data import
 # ==================
-data <- readRDS("/raleighlab/data1/liuj/gbm_perturb/analysis/GBM43_1_malignant_only_annotated_20230817.Rds")
+data <- readRDS("data/gbm43_perturb_seq/GBM43_1_malignant_only_annotated_20230817.Rds")
 off_targets <- c("GRAMD4", "FBXL16", "OVCH1")
 include_genes <- setdiff(unique(data$sgRNA), off_targets)
 data <- subset(data, sgRNA %in% include_genes)
@@ -511,8 +511,8 @@ for (sgRNA in sgRNAs) {
 # Generate nebulosa plots for the LDA UMAPs
 # ==================
 
-dat.LDAnoRT <- readRDS("/raleighlab/data1/czou/gbm_perturb/gbm_perturb_gbm43_explore_outputs/heterogeneity/gbm_pdx_perturb_mixscape/noRT_data.rds")
-dat.LDART <- readRDS("/raleighlab/data1/czou/gbm_perturb/gbm_perturb_gbm43_explore_outputs/heterogeneity/gbm_pdx_perturb_mixscape/RT_data.rds")
+dat.LDAnoRT <- readRDS("data/gbm43_perturb_seq/noRT_data.rds")
+dat.LDART <- readRDS("data/gbm43_perturb_seq/RT_data.rds")
 
 SCpubr::do_NebulosaPlot(sample = dat.LDART, features = "sgRNA_logUMI", reduction = "ldaumap")
 SCpubr::do_FeaturePlot(sample = dat.LDAnoRT, features = "sgRNA_logUMI", reduction = "ldaumap")

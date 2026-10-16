@@ -3,7 +3,7 @@
 library(Seurat)
 library(SeuratDisk)
 
-gbm43 <- readRDS("/raleighlab/data1/liuj/gbm_perturb/analysis/GBM43_1_malignant_only_annotated_20230817.Rds")
+gbm43 <- readRDS("data/gbm43_perturb_seq/GBM43_1_malignant_only_annotated_20230817.Rds")
 
 # Process the Seurat object to contain only human genes and use the raw RNA
 # counts.
@@ -18,7 +18,7 @@ Convert("data/gbm43.h5Seurat", dest = "h5ad")
 
 # Export GL261 tumor data
 
-gl261_data <- readRDS("/raleighlab/data1/liuj/gbm_perturb/analysis/GL261_integrated_20230619.Rds")
+gl261_data <- readRDS("data/gl261_perturb_seq/GL261_integrated_20230619.Rds")
 gl261_data <- subset(gl261_data, scMRMA_manual %in% c("GL261 in vitro", "GL261 in vivo"))
 gl261_data <- subset(gl261_data, sorted %in% c("MACSFACS", "invitro"))
 gl261_data$sgRNACondSource <- paste(gl261_data$sgRNACond, gl261_data$source, sep = "_")

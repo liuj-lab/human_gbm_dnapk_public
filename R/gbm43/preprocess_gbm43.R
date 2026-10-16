@@ -17,7 +17,12 @@ library(dplyr)
 library(tidyr)
 library(reshape2)
 library(patchwork)
-setwd("/raleighlab/data1/liuj/gbm_perturb/analysis/gbm_pdx_perturb_gbm43_1/")
+# Run from the repository root. Inputs are read from data/; figures and tables are written to OUTPUT_DIR.
+DATA_DIR <- normalizePath("data")
+CELLRANGER_DIR <- file.path(DATA_DIR, "cellranger_out_combined", "gbm_pdx_perturb_gbm43_1")
+OUTPUT_DIR <- "output/gbm43/preprocessing"
+dir.create(OUTPUT_DIR, recursive = TRUE, showWarnings = FALSE)
+setwd(OUTPUT_DIR)
 
 # tabulate how many cells have x gene expression
 PrctCellExpringGene <- function(object, genes, group.by = "all") {
@@ -49,16 +54,16 @@ calc_helper <- function(object, genes) {
 }
 
 # Load screen data
-phenoTbl <- read.table("/raleighlab/data1/liuj/crispr_screens/hs_rt_integrated/GBM43_LN18_T98G_zim3_phenotable.txt", sep = "\t", header = TRUE, row.names = 1)
+phenoTbl <- read.table(file.path(DATA_DIR, "crispr_screens", "GBM43_LN18_T98G_zim3_phenotable.txt"), sep = "\t", header = TRUE, row.names = 1)
 
 # load all GBM43  data
-smpid <- dir(file.path("/raleighlab/data1/liuj/gbm_perturb/cellranger_out_combined/gbm_pdx_perturb_gbm43_1"))
+smpid <- dir(CELLRANGER_DIR)
 
 dataGene.list <- list()
 sgR.list <- list()
 
 for (i in 1:length(smpid)) {
-  df <- Read10X(data.dir = paste("/raleighlab/data1/liuj/gbm_perturb/cellranger_out_combined/gbm_pdx_perturb_gbm43_1/", smpid[i], "/outs/filtered_feature_bc_matrix/", sep = ""))
+  df <- Read10X(data.dir = file.path(CELLRANGER_DIR, smpid[i], "outs", "filtered_feature_bc_matrix"))
   dataGene.list[[i]] <- CreateSeuratObject(counts = df$`Gene Expression`, project = smpid[i])
   sgR.list[[i]] <- CreateSeuratObject(counts = df$`CRISPR Guide Capture`, project = smpid[i])
   dataGene.list[[i]]$orig.ident <- smpid[i]
@@ -201,8 +206,8 @@ seqMetrics.list <- list()
 sgRNATbl.list <- list()
 
 for (i in 1:length(smpid)) {
-  seqMetrics.list[[i]] <- read.table(paste("/raleighlab/data1/liuj/gbm_perturb/cellranger_out_combined/gbm_pdx_perturb_gbm43_1/", smpid[i], "/outs/metrics_summary.csv", sep = ""), sep = ",", header = TRUE)
-  sgRNA_tags <- read.table(paste("/raleighlab/data1/liuj/gbm_perturb/cellranger_out_combined/gbm_pdx_perturb_gbm43_1/", smpid[i], "/outs/crispr_analysis/protospacer_calls_per_cell.csv", sep = ""), sep = ",", header = TRUE)
+  seqMetrics.list[[i]] <- read.table(file.path(CELLRANGER_DIR, smpid[i], "outs", "metrics_summary.csv"), sep = ",", header = TRUE)
+  sgRNA_tags <- read.table(file.path(CELLRANGER_DIR, smpid[i], "outs", "crispr_analysis", "protospacer_calls_per_cell.csv"), sep = ",", header = TRUE)
   sgRNA_tags$cell_barcode <- gsub("-1", "", sgRNA_tags$cell_barcode)
   row.names(sgRNA_tags) <- as.character(sgRNA_tags$cell_barcode)
   sgRNATbl.list[[i]] <- sgRNA_tags
@@ -437,7 +442,7 @@ dat.sub.GBM43$sgRNACond <- paste(dat.sub.GBM43$sgRNA, dat.sub.GBM43$cond, sep = 
 #########################
 # Analysis of knockdown #
 # Get knockdown values
-features <- read.table("/raleighlab/data1/liuj/gbm_perturb/scripts/features_GBM43_LN18_RT_hits.csv", sep = ",", header = TRUE, row.names = 1)
+features <- read.table(file.path(DATA_DIR, "gbm43_perturb_seq", "features_GBM43_LN18_RT_hits.csv"), sep = ",", header = TRUE, row.names = 1)
 
 # Normalize data to CPM
 dat.sub.GBM43Norm <- dat.sub.GBM43

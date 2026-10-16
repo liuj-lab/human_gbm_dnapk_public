@@ -35,7 +35,7 @@ utils.pipelines$save_to_metadata_file(
 )
 
 EXTERNAL_DATA_IMPORT_DIR <- "data/xenograft_pipeline_data"
-DATA_DIR <- "/raleighlab/data1/liuj/gbm_perturb/cellranger_out_combined"
+DATA_DIR <- "data/cellranger_out_combined"
 EXPERIMENT_DIR <- "gbm_pdx_dnapk_gbm43"
 
 # Parameters

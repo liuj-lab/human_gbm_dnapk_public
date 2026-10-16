@@ -17,7 +17,7 @@ output_dir <- "output/gbm43/deseq/noRTNormalized"
 # =========================================================
 
 # Import the data
-gbm43 <- readRDS("/raleighlab/data1/liuj/gbm_perturb/analysis/GBM43_1_malignant_only_annotated_20230817.Rds")
+gbm43 <- readRDS("data/gbm43_perturb_seq/GBM43_1_malignant_only_annotated_20230817.Rds")
 DefaultAssay(gbm43) <- "RNA"
 all_genes <- rownames(gbm43)
 human_genes <- all_genes[grep("GRCh38-", all_genes)]
